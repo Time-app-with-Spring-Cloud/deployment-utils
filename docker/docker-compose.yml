@@ -1,0 +1,6 @@
+version: '3'
+services:
+  time-service:
+    image: "pedrogalan/time-service:0.0.1-SNAPSHOT"
+    ports:
+      - "8081:8081"
