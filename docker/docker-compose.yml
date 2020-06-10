@@ -4,23 +4,17 @@ services:
     image: "pedrogalan/time-eureka-server:0.0.1-SNAPSHOT"
     ports:
       - "8761:8761"
+
   time-service:
     image: "pedrogalan/time-service:0.0.1-SNAPSHOT"
     ports:
       - "8081:8081"
-    depends_on:
-      - time-eureka-server
-    links:
-      - time-eureka-server
     environment:
         EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://time-eureka-server:8761/eureka
+
   time-config-server:
     image: "pedrogalan/time-config-server:0.0.1-SNAPSHOT"
     ports:
       - "8082:8082"
-    depends_on:
-      - time-eureka-server
-    links:
-      - time-eureka-server
     environment:
         EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://time-eureka-server:8761/eureka
