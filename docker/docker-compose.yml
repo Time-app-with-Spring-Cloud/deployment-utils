@@ -25,3 +25,10 @@ services:
       - "8080:8080"
     environment:
         EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://time-eureka-server:8761/eureka
+
+  time-hystrix-dashboard:
+    image: "pedrogalan/time-hystrix-dashboard:0.0.1-SNAPSHOT"
+    ports:
+      - "8083:8083"
+    environment:
+        EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://time-eureka-server:8761/eureka
